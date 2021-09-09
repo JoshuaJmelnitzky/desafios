@@ -9,7 +9,7 @@ let ingresoNumber;
 const precio = 1500;
 
 //Menú de opciones
-alert("Menú de opciones: \n 1) Consultar menú de opciones \n 2) Cargar ventas de productos \n 3) Calcular tablas \n 4) Mayor y menor número",);
+alert("Menú de opciones: \n 1) Consultar menú de opciones \n 2) Cargar ventas de productos \n 3) Calcular tablas \n 4) Mayor y menor número");
 
 let opcionElegida = parseInt(prompt("Ingrese el número de la operación que desea realizar, para finalizar use el 0: "));
 
@@ -21,7 +21,7 @@ while(opcionElegida <= 4 && opcionElegida > 0 && opcionElegida != "0"){
             console.log("Menú de opciones: ");
             console.log("1) Cargar ventas de productos");
             console.log("2) Calcular tablas");
-            console.log("4) Mayor y menor número")
+            console.log("4) Mayor y menor número");
             break
 
         // Opcion 2) Cargar nombre y cantidad de productos. Se muestra por ultimo el total.
@@ -30,7 +30,7 @@ while(opcionElegida <= 4 && opcionElegida > 0 && opcionElegida != "0"){
             while(true){
                 nombre = prompt("Ingrese el nombre del producto vendido, para terminar escriba cualquier número: ");
                 if (isNaN(parseInt(nombre)) == false){
-                    break;
+                    break
                 }
                 products = parseInt(prompt("Ingrese cantidad de productos vendidos: "));
                 console.log("Se han vendido " + products + " " + nombre + " dando un total de " + "$" + products*precio);
@@ -67,6 +67,6 @@ while(opcionElegida <= 4 && opcionElegida > 0 && opcionElegida != "0"){
 }
 
 
-alert("Gracias por usar el sistema :D")
+alert("Gracias por usar el sistema :D");
 
 
