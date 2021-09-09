@@ -1,80 +1,71 @@
-// Ingreso y muestra de nombre y apellido
-let nombreValidar = "Joshua"
-let apellidoValidar = "Jmelnitzky"
-let nombre = prompt("Ingrese su nombre: ");
-let apellido = prompt("Ingrese su apellido: ");
-const blanco = " ";
+// Declaraciones de variables
+let number;
+let resultado;
+let products;
+let nombre;
+let mayor = 0;
+let menor = 0; 
+let ingresoNumber;
+const precio = 1500;
 
-let nombreCompleto = "Bienvenido" + blanco + nombre + blanco + apellido;
+//Menú de opciones
+alert("Menú de opciones: \n 1) Consultar menú de opciones \n 2) Cargar ventas de productos \n 3) Calcular tablas \n 4) Mayor y menor número",);
 
-if (nombre != "" && apellido != "" && nombreValidar == nombre && apellidoValidar == apellido){
-    console.log(nombreCompleto);
-}
-else if(nombre != nombreValidar || apellido != apellidoValidar){
-    alert("No se encontró el usuario ingresado");
-}
-else{
-    alert("No se ha introducido ningún nombre/apellido");
-}
+let opcionElegida = parseInt(prompt("Ingrese el número de la operación que desea realizar, para finalizar use el 0: "));
 
-// Ingreso y muestra de edad
-let edad = prompt("Ingrese su edad: ");
-let edadNum = parseInt(edad);
-let edadNumTxt = "Edad: " + edadNum + " años";
+while(opcionElegida <= 4 && opcionElegida > 0 && opcionElegida != "0"){
+    switch(opcionElegida){
 
-console.log(edadNumTxt)
+        // Opcion 1) Mostrar menú de opciones
+        case 1:
+            console.log("Menú de opciones: ");
+            console.log("1) Cargar ventas de productos");
+            console.log("2) Calcular tablas");
+            console.log("4) Mayor y menor número")
+            break
 
-// Ingreso y muestra de desviación estandar de edad
-let edadProm = 30 - edadNum;
-let edadPromTxt = "La desviación estandar respecto a edades de otros usuarios registrados es de "  + edadProm  + " años";
+        // Opcion 2) Cargar nombre y cantidad de productos. Se muestra por ultimo el total.
+        case 2:
+            nombre = " ";
+            while(true){
+                nombre = prompt("Ingrese el nombre del producto vendido, para terminar escriba cualquier número: ");
+                if (isNaN(parseInt(nombre)) == false){
+                    break;
+                }
+                products = parseInt(prompt("Ingrese cantidad de productos vendidos: "));
+                console.log("Se han vendido " + products + " " + nombre + " dando un total de " + "$" + products*precio);
+            }
+            break
 
-console.log(edadPromTxt)
+        // Opcion 3) Calcular tabla de un número ingresado
+        case 3:
+            number = parseInt(prompt("Ingresar un número: "));
+            for (let i = 1; i <=10; i++) {
+                resultado = number * i;
+                console.log(number + " * " + i + " = " + resultado);
+            }
+            break
+        
+        // Opcion 4) Mostrar mayor y menor número de los ingresados por el usuario
+        case 4:
+            number = parseInt(prompt("Ingrese cantidad de números a comprobar: "));
+            for (let i=1; i<= number; i++){
+                ingresoNumber = parseInt(prompt("Ingrese el " + i + " número: "));
+                if (ingresoNumber > mayor){
+                    mayor = ingresoNumber;
+                }
+                else if (ingresoNumber < menor){
+                    menor = ingresoNumber;
+                }         
+            }
+            console.log("El mayor número de los ingresados es el " + mayor);
+            console.log("El menor número de los ingresados es el " + menor);
+            break
+        }
 
-// Ingreso y muestra de calculo de salario 
-let artVendidos = prompt("Ingrese la cantidad de artículos vendidos: ");
-let sector = prompt("Ingrese en que sector trabaja: ");
-let sueldoBase = parseFloat(35500.85);
-let comision = parseFloat(5224.54);
-
-
-if (sector == "administrativo" || sector == "Administrativo"){
-    sueldoBase += 10000;
-}
-else if(sector == "RRHH" || sector == "rrhh"){
-    sueldoBase += 8000;
-}
-else if(sector == "ventas" || sector == "Ventas"){
-    sueldoBase += 7000;
-}
-else{
-    sueldoBase += 2000;
-}
-
-
-let calculoSalario = sueldoBase + artVendidos * comision;
-
-console.log("Su cargo es: " + sector);
-console.log("Su sueldo es de " + "$" + calculoSalario);
-
-// Oferta artículo
-
-let precio = parseFloat(prompt("Introducir precio de un artículo"));
-
-if (precio > 0 && precio < 3000){
-    console.log("El producto se encuentra en oferta");
-}
-else if (precio > 3000 && precio < 5000){
-    console.log("El producto se encuentra a precio regular");
-}
-else if (precio < 0){
-    alert("Un precio no puede ser negativo");
-}
-else{
-    console.log("El producto se encuentra en sobreprecio");
+    opcionElegida = parseInt(prompt("Ingrese el número de la operación que desea realizar, para finalizar use el 0: "));
 }
 
+alert("Gracias por usar el sistema :D")
 
 
-
-
-   
