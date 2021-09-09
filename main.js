@@ -66,6 +66,7 @@ while(opcionElegida <= 4 && opcionElegida > 0 && opcionElegida != "0"){
     opcionElegida = parseInt(prompt("Ingrese el número de la operación que desea realizar, para finalizar use el 0: "));
 }
 
+
 alert("Gracias por usar el sistema :D")
 
 
