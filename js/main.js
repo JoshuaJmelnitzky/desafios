@@ -2,21 +2,22 @@ alert('Bienvenido a HardBuy - Tienda de hardware')
 
 do{
     let option = parseInt(prompt(menu));
-    let choice = products(option);
-    alert(choice);
-    if(option === 5) break;
-    let qty = parseInt(prompt(SelectedQty))
+    let choice = parseInt(prompt(products(option)));
+    choiceVal = validator(1, choice, 3);
 
-    addToCart(option, qty);
+    if(option === 5) break;
+    let qty = parseInt(prompt(SelectedQty));
+
+    addToCart(option, choiceVal, qty);
 
     resp = prompt('¿Desea agregar mas productos a la cuenta? SI/NO');
 
-    console.log(resp)
+    console.log(resp);
 
 }while(resp === "SI");
 
 if(cart > 0){
     alert(`Su compra tiene un total de $${cart}`);
+    alert('Gracias por su compra :)');
 }
 
-alert('Gracias, vuelva prontos')
