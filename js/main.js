@@ -18,6 +18,8 @@ do{
 
 if(cart > 0){
     alert(`Su compra tiene un total de $${cart}`);
+    let pay = parseInt(prompt(payment));
+    methodPayment(pay)
     alert('Gracias por su compra :)');
 }
 

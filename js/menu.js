@@ -51,50 +51,53 @@ const products = (option) => {
 
 const SelectedQty = 'Ingrese la cantidad a adquirir: ';
 
-/*Lista de Precios*/ 
+const payment = `Forma de pago:
+1.-Efectivo
+2.-Transferencia bancaria
+3.-Tarjeta de débito
+4.-Tarjeta de crédito
+`;
+
+/* Listado de productos y  */
+
+class Product {
+    constructor (producto, precio, stockProducto){
+        this.producto = producto;
+        this.precio = precio;
+        this.stockProducto = stockProducto;
+    }
+    stock(quantity){
+        if(quantity > this.stockProducto){
+            alert(`No tenemos suficiente stock. El stock disponible es ${this.stockProducto}`);
+            return false;
+        }
+        else return true;
+    }
+    iva(){
+        this.precio *= 1.21;
+        return this.precio;
+    }
+}
 
 /* Microprocesadores */
-const ryzen5600 = 39000;
-const ryzen5800 = 53000;
-const i99900 = 60000;
+let ryzen5600 = new Product("Ryzen 5600X", 39000, 5);
+let ryzen5800 = new Product("Ryzen 5800X", 53000, 2);
+let i9900 = new Product("Intel i9-9900K", 60000, 30)
 
-/* Memoria RAM */
-const hyperx3200 = 11500;
-const patriotViper = 10000;
-const adata3600 = 7500;
+/* Memoria RAK */
+let hyperx3200 = new Product("HyperX 3200mhz 16gb", 11500, 6);
+let patriotViper = new Product("Patriot Viper 3200mhz 16gb", 10000, 5);
+let adata3600 = new Product("Adata 3600mhz 8gb", 7500, 3)
 
-/* Motherboards*/
-const gigabyteB450 = 14000;
-const asusB560 = 15500;
-const msiZ490 = 17500 ;
-
-/* Placas de video */
-const palitGtx1660 = 120000;
-const msiRtx3060ti = 200000;
-const msiRadeonRx6700 = 180000;
-
-
-/*Lista de Stock*/ 
-
-/* Microprocesadores */
-let ryzen5600Stock = 5;
-let ryzen5800Stock = 2;
-let i99900Stock = 20;
-
-/* Memoria RAM */
-let hyperx3200Stock = 6;
-let patriotViperStock = 5;
-let adata3600Stock = 3;
-
-/* Motherboards*/
-let gigabyteB450Stock = 4;
-let asusB560Stock = 5;
-let msiZ490Stock = 3 ;
+/* Motherboards */
+let gigabyteB450 = new Product("Gigabyte B450 aorus elite", 14000, 4);
+let asusB560 = new Product("Asus TUF B560b-plus", 15500, 5);
+let msiZ490 = new Product("MSI Z490", 17500, 3);
 
 /* Placas de video */
-let palitGtx1660Stock = 20;
-let msiRtx3060tiStock = 16;
-let msiRadeonRx6700Stock = 12;
+let palitGtx1660 = new Product("Palit GTX 1660", 120000, 20);
+let msiRtx3060ti = new Product("MSI RTX 3060 ti ventus", 200000, 16);
+let msiRadeonRx6700 = new Product("MSI Radeon RX 6700", 180000,12);
 
 
 let cart = 0;
