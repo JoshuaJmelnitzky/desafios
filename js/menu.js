@@ -1,105 +1,46 @@
 /*Este archivo contiene las variables generales para el desarrollo de tienda de hardware "HardBuy"*/
 
-/* Menú principal de opciones */
-const menu = `Escoge un Producto:
-1.-Microprocesador
-2.-Memoria RAM
-3.-Motherboards
-4.-Placa de video
-5.-Salir
-`;
+/*  Tipos de productos*/
+let productTypes = [
+    {id: 1, name: "Microprocesadores"},
+    {id: 2, name: "Memoria RAM"},
+    {id: 3, name: "Motherboards"},
+    {id: 4, name: "Placa de video"},
+]
 
 
-/* productos */
-const products = (option) => {
-    let choice = null;
-    optionVal = validator(1, option, 5);
-    switch (optionVal){
-        case 1:
-            choice = `Microprocesadores
-            1.-Ryzen 5 5600x
-            2.-Ryzen 7 5800x
-            3.-Intel i9 9900k
-            `;
-            return choice
-        case 2: 
-            choice = `Memorias RAM
-            1.-Hyperx fury 16gb 3200mhz
-            2.-Patriot Viper 16gb 3200mhz
-            3.-Adata 8gb 3600mhz
-            `;
-            return choice
-        case 3: 
-            choice = `Motherboards
-            1.-Gigabyte B450 aorus elite
-            2.-Asus TUF B560b-plus
-            3.-MSI Z490 
-            `;
-            return choice
-        case 4: 
-            choice = `Placa de video
-            1.-Palit GTX 1660
-            2.-MSI RTX 3060 ti ventus
-            3.-MSI Radeon RX 6700
-            `;  
-            return choice
-        case 5:
-            return "Gracias por utilizar el sistema"
-    }
-}
+/* Listado de productos */
+let products = [
+    /* Microprocesadores */
+    {id: 1, itemCategory: 1, item: 1, name: "Ryzen 5600X", price: 39000, stock: 5},
+    {id: 2, itemCategory: 1, item: 1, name: "Ryzen 5800X", price: 53000, stock: 2},
+    {id: 3, itemCategory: 1, item: 1, name: "Intel i9-9900K", price: 60000, stock: 2},
+    /* Memorias RAM */
+    {id: 4, itemCategory: 2, item: 1, name: "HyperX 3200mhz 16gb", price: 11500, stock: 6},
+    {id: 5, itemCategory: 2, item: 1, name: "Patriot Viper 3200mhz 16gb", price: 10000, stock: 5},
+    {id: 6, itemCategory: 2, item: 1, name: "Adata 3600mhz 8gb", price: 7500, stock: 3},
+    /* Motherboards */
+    {id: 7, itemCategory: 3, item: 1, name: "Gigabyte B450 aorus elite", price: 14000, stock: 4},
+    {id: 8, itemCategory: 3, item: 1, name: "Asus TUF B560b-plus", price: 15500, stock: 5},
+    {id: 9, itemCategory: 3, item: 1, name: "MSI Z490", price: 17500, stock: 3},
+    /* Placas de video */
+    {id: 10, itemCategory: 4, item: 1, name: "Palit GTX 1660", price: 120000, stock: 20},
+    {id: 11, itemCategory: 4, item: 1, name: "MSI RTX 3060 ti ventus", price: 200000, stock: 16},
+    {id: 12, itemCategory: 4, item: 1, name: "MSI Radeon RX 6700", price: 180000, stock: 12},
+];
 
 
-const SelectedQty = 'Ingrese la cantidad a adquirir: ';
-
-const payment = `Forma de pago:
-1.-Efectivo
-2.-Transferencia bancaria
-3.-Tarjeta de débito
-4.-Tarjeta de crédito
-`;
-
-/* Listado de productos y  */
-
-class Product {
-    constructor (producto, precio, stockProducto){
-        this.producto = producto;
-        this.precio = precio;
-        this.stockProducto = stockProducto;
-    }
-    stock(quantity){
-        if(quantity > this.stockProducto){
-            alert(`No tenemos suficiente stock. El stock disponible es ${this.stockProducto}`);
-            return false;
-        }
-        else return true;
-    }
-    iva(){
-        this.precio *= 1.21;
-        return this.precio;
-    }
-}
-
-/* Microprocesadores */
-let ryzen5600 = new Product("Ryzen 5600X", 39000, 5);
-let ryzen5800 = new Product("Ryzen 5800X", 53000, 2);
-let i9900 = new Product("Intel i9-9900K", 60000, 30)
-
-/* Memoria RAK */
-let hyperx3200 = new Product("HyperX 3200mhz 16gb", 11500, 6);
-let patriotViper = new Product("Patriot Viper 3200mhz 16gb", 10000, 5);
-let adata3600 = new Product("Adata 3600mhz 8gb", 7500, 3)
-
-/* Motherboards */
-let gigabyteB450 = new Product("Gigabyte B450 aorus elite", 14000, 4);
-let asusB560 = new Product("Asus TUF B560b-plus", 15500, 5);
-let msiZ490 = new Product("MSI Z490", 17500, 3);
-
-/* Placas de video */
-let palitGtx1660 = new Product("Palit GTX 1660", 120000, 20);
-let msiRtx3060ti = new Product("MSI RTX 3060 ti ventus", 200000, 16);
-let msiRadeonRx6700 = new Product("MSI Radeon RX 6700", 180000,12);
+/* Formas de pago  */
+let paymentMethods = [
+    {id: 1, methodName: "Efectivo"},
+    {id: 2, methodName: "Transferencia bancaria"},
+    {id: 3, methodName: "Tarjeta de débito"},
+    {id: 4, methodName: "Tarjeta de crédito"},
+]
 
 
-let cart = 0;
+let cart = 0;  //Declaración de variable para sumar los precios de los productos al carrito de compras
 
-let resp = 'SI';
+let resp = 'SI'; //Declaración de variable para controlar el ciclo de cuantos productos quiere añadir el cliente al carrito
+
+const SelectedQty = 'Ingrese la cantidad a adquirir: '; // Texto para indicar al cliente que debe ingresar la cantidad que desea comprar de un producto determinado
