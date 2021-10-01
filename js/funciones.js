@@ -118,6 +118,13 @@ products.sort(function (a, b) {
     return 0;
   });
 
+/* Agregar productos al listado de productos */
 
-
-
+class AddProduct{
+    constructor(itemCategory, name, price, stock){
+        this.itemCategory = itemCategory;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+    }
+} ;

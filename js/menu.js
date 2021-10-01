@@ -12,8 +12,8 @@ let productTypes = [
 /* Listado de productos */
 let products = [
     /* Microprocesadores */
-    {id: 1, itemCategory: 1, item: 1, name: "Ryzen 5600X", price: 39000, stock: 5},
     {id: 2, itemCategory: 1, item: 1, name: "Ryzen 5800X", price: 53000, stock: 2},
+    {id: 1, itemCategory: 1, item: 1, name: "Ryzen 5600X", price: 39000, stock: 5},
     {id: 3, itemCategory: 1, item: 1, name: "Intel i9-9900K", price: 60000, stock: 2},
     /* Memorias RAM */
     {id: 4, itemCategory: 2, item: 1, name: "HyperX 3200mhz 16gb", price: 11500, stock: 6},
