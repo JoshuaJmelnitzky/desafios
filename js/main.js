@@ -15,6 +15,8 @@ do{
 
 }while(resp === "SI");
 
+
+
 if(cart > 0){
     alert(`Su compra tiene un total de $${cart}`);
     let pay = showPaymentMethods();
